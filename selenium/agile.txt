@@ -1,0 +1,20 @@
+Agile Testing
+
+1, Initiation 
+2, Plannig
+3, Implementation
+4,  Closing
+
+Role 
+
+-> Testing the begiing  of a  Project 
+
+* Review product Requirements
+* Ask clarifying questions
+* Extract Information to set a  quality standard 
+* create a plan outlining the product's  testability 
+* Implement a structure to realize quality 
+
+Shifiting Left
+
+* Verify and Validate designs and code as they are created throughtout a  projects duration 

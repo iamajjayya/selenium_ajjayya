@@ -1,0 +1,41 @@
+* Selenium automates browsers, Thats it!
+* What you do with that power is entirely up to you
+* Primarly it is for automating web application for testing purposes but is certainly not limited to just that
+* Boring web based administration tasks can (and should) also be automated as well 
+
+* Selenium websuit
+
+  1. Selenium webdriver
+  2. Selenium IDE
+  3. Selenium Grid
+
+
+-> Selenium is a popular automation testing tool used to test web applications, it has three components:
+
+1. Selenium webdriver
+
+   * It allows you to control a web browser through code
+   * Used for automated testing of web applications in real browsers like chrome
+   * It interact with web elements 
+   * Example use case: Testing login functionality by filling in userbame and passsword fileds and clicking the login button 
+   * Functional Testing and UI Testing 
+
+2. Selenium IDE
+   
+   * A browser Extension that recors user actions and plays them back
+
+3. Selenium Grid
+
+  * It allows you to test on Multiple browsers and devices at the same time
+  * Useful for parallel testing, saving time whentesting large applications
+  * Example use case: Running the same test on chrome ., firefox, and edge simultaneous;ey to check cross-browser compatibility
+  * Large - scale Testing
+
+
+  
+
+
+
+ 
+
+

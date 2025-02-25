@@ -8,5 +8,6 @@ title = browser.title
 
 print(title)
 
-assert "Selenium12" in title
+assert "Selenium" in title
+
 

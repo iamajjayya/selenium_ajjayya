@@ -1,0 +1,95 @@
+Elemensts ->  HTML elements
+Locaors -> Locators are used to find and interact with web elements on a webpage
+
+Types of Selenium Locators
+
+1.ID Locator(By.ID)
+  -> The fatsest and most prefred Locator
+  -> Use the  id attribute of an Html elements
+  Example
+    driver.find_element(By.ID,"username")
+
+2, Name Locator(By.NAME)
+
+  ->  Uses the name attribute of an element
+  ->  Works well if  the name is unique
+  -> example:
+     driver.find_element(By.NAME,"password")
+
+3, Class Name Locator(By.CLASS_NAME)
+
+  -> Select elements using thier class attribute
+  -> not recomeded if multiple elements have the same class
+
+  Example :
+
+      driver.find_element(By.CLASS_NAME,"login-btn")
+
+4,Tag Name Locator(By.TAG_NAME)
+
+   -> Finds elemenst using the tag name (e,g, input,button, div)
+   -> Useful for selecting Multiple elements
+   ->  Ex : driver.find_elements(By.TAG_NAME,"input")
+
+5, Link Text Locator(By.LINK_TEXT)
+
+   -> Finds anchor<a> elements using thier exact text
+   ex :
+     driver.find_element(By.LINK_TEXT, "Signup")
+
+6, Partial Link Text Locator (By.PARTIAL_LINK_TEXT)
+
+   ->  finds links using a partial match of the link text
+   -> Example:
+
+      driver.find_element(BY.PARTIAL_LINK_TEXT,"signup")
+
+7, CSS Selectors(By.CSS_SELECTOR)
+
+    -> one of the most powerful Locators
+    -> Supports classes, IDs, Attributes and Hierachical selection
+
+    Example:
+       driver.find_element(By.CSS_SELECTOR,"#username")
+
+8 XPATH(By.XPATH)
+
+   -> The most flexible but sligthly slower than CSS Selectors
+   -> Supports Absolute (/html/body/) and
+      relative [//tag[@attribute  = "value"]] paths
+
+
+      driver.find_element(By.XPATH, "//input[@id='username']")
+
+      
+
+Elements 
+
+-> Checkboxes
+-> links
+-> Text fileds
+
+Locators
+
+1, ID
+2, Name
+3, Class Name
+4, CSS Selectors
+5, Tagname 
+6, PARTIAL_LINK_TEXT
+7, LINK_TEXT
+8, XPATH
+
+
+Interaction
+
+1, Text filed typing
+2, checkbox checking
+3, Link clicking
+
+
+Assertionn
+
+1, Verify the functionality
+2, Verify that there should be a button with a text login 
+
