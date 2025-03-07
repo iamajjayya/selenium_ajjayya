@@ -19,7 +19,7 @@ for row in rows:
     cells = row.find_elements(By.TAG_NAME,"td")
     for cell in cells:
         if target_value in cell.text:
-            print(f"Found value{target_value}")
+            print(f"Found value : {target_value}")
             found = True
             break
     if found:
