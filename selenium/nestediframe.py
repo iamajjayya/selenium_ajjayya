@@ -39,9 +39,11 @@ driver.switch_to.default_content()
 
 driver.switch_to.frame("frame-bottom")
 
-bottom_content = driver.find_element(By.TAG_NAME,"bdy").text
+bottom_content = driver.find_element(By.TAG_NAME,"body").text
 
 print("BODY FRAME text :", bottom_content)
+
+
 
 
 
