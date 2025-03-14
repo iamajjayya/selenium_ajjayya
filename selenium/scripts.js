@@ -1,54 +1,36 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require('puppeteer');
 
 (async () => {
-    // ✅ Launch browser in headless mode
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: false }); // Set true for automation
     const page = await browser.newPage();
 
-    // ✅ Function to check if script is loaded on a given page
-    async function checkScript(url) {
-        console.log(`🔍 Checking: ${url}`);
+    // Set viewport for proper rendering
+    await page.setViewport({ width: 1366, height: 768 });
 
-        // Intercept network requests
-        await page.setRequestInterception(true);
-        let scriptFound = false;
+    // Go to the specific URL
+    await page.goto('https://www.ndtv.com/india-news/26-11-accused-tahawwur-ranas-extradition-request-rejected-by-us-court-7866809?rtbpbjs_debug=true&adliveplustest=1', { waitUntil: 'networkidle2' });
 
-        page.on("request", (request) => {
-            if (request.url().includes("https://rtbcdn.andbeyond.media/inline-2660649.js")) {
-                scriptFound = true;
+    try {
+        // Wait for the ad unit to appear
+        await page.waitForSelector('#andbeyond9701', { timeout: 15000 });
+
+        const adSize = await page.evaluate(() => {
+            let adDiv = document.getElementById("andbeyond9701");
+            if (adDiv) {
+                let iframe = adDiv.querySelector("iframe");
+                if (iframe) {
+                    let rect = iframe.getBoundingClientRect();
+                    return { width: rect.width, height: rect.height };
+                }
             }
-            request.continue();
+            return null;
         });
 
-        await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
+        console.log(adSize ? `Ad Size: ${adSize.width} x ${adSize.height}` : "Ad not found");
 
-        if (scriptFound) {
-            console.log(`✅ Script found on: ${url}`);
-        } else {
-            console.log(`❌ Script NOT found on: ${url}`);
-        }
-
-        // Reset interception for the next page
-        await page.setRequestInterception(false);
+    } catch (error) {
+        console.error("Error: Ad not found or took too long to load.");
     }
 
-    // ✅ Visit main page first
-    await checkScript("https://www.olx.in/");
-
-    // ✅ Extract all links from the main page
-    const links = await page.evaluate(() =>
-        Array.from(document.querySelectorAll("a"))
-            .map((a) => a.href)
-            .filter((href) => href.startsWith("https://www.olx.in/"))
-    );
-
-    console.log(`🔗 Found ${links.length} links to visit...`);
-
-    // ✅ Check the script on each extracted page (up to 10 pages to avoid overload)
-    for (let i = 0; i < Math.min(10, links.length); i++) {
-        await checkScript(links[i]);
-    }
-
-    // ✅ Close browser
     await browser.close();
 })();

@@ -39,3 +39,4 @@ print("\n Handling Simple Alert....")
 driver.find_element(By.CSS_SELECTOR,"#content > div > ul > li:nth-child(3) > button").click()
 handle_alert()                     
 
+driver.quit()
