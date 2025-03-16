@@ -28,3 +28,6 @@ formatted_date = next_date.strftime("%m/%d/%y")
 browser.find_element(By.CSS_SELECTOR,"#datepicker").send_keys(formatted_date + Keys.TAB )
 time.sleep(5)
 browser.quit()
+
+
+
