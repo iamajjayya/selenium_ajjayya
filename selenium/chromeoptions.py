@@ -43,7 +43,7 @@ options  = Options() # create an instance
 
 options.add_argument("--headless")
 #or options.headless = true
-
+options.add_argument("--disable-gpu")
 
 driver = webdriver.Chrome(options=options)
 driver.get("https://www.91pu.com.tw/singer/")

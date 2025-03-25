@@ -51,3 +51,4 @@ for row in sheet.iter_rows(min_row=2,max_row=sheet.max_row,values_only=True):
 # Close browser
 driver.quit()
     
+    
